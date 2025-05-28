@@ -1,4 +1,4 @@
-# front-end
+# front-end designs
 Front-end designs:
 <br/>
 <ul>
