@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin Flipper v0.1</title>
+</head>
+<style>
+  body {
+    background-color: cornsilk;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 0.9rem;
+  }  
+  .container {
+    margin: 4%;
+    padding: 2%;
+    border: 1px solid lightgoldenrodyellow;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(250, 250, 221, 0.61), rgb(110, 85, 85));
+    position: relative
+  }
+
+  .btn {
+    margin: 2%;
+
+  }
+
+  .btn:hover {
+    cursor: pointer;
+  }
+
+  .header {
+    margin-top: -10px;
+    margin-left: 60px;
+    position: absolute;
+  }
+
+</style>
+<body>
+  <br>
+  <br>
+  <br>
+  <h2 class="header">Coin Flipper</h2>
+  <div class="container">
+    <button class="btn" title="Choose heads by clicking here" onclick="
+      playGame(heads);
+      ">Heads</button>
+    <button class="btn" title="Choose tails by clicking here" onclick="
+      playGame(tails);
+    ">Tails</button>
+  </div>
+  <button class="btn" onclick="
+    localStorage.removeItem('scoreCoin');
+    scoreCoin.wins = 0
+    scoreCoin.losses = 0
+  ">
+    Reset
+  </button>
+  <script>
+      let scoreCoin = (JSON.parse(localStorage.getItem('scoreCoin')));
+
+      if(!scoreCoin) {
+        scoreCoin = {
+        wins: 0,
+        losses: 0
+      }
+      }
+
+      heads = 0;
+      tails = 1;
+
+      
+    function playGame(choice) {
+      let cpuToss = Math.floor(Math.random()*2);
+      cpuToss === 0 ? console.log('Coin landed with a face on the upside...') : console.log('Coin landed with a tail on the upside...') 
+      choice === cpuToss ? alert('You win') : alert('You lost.')
+      choice === cpuToss ? scoreCoin.wins++ : scoreCoin.losses++
+      console.log(scoreCoin);
+      alert('Your current score is: \n' + JSON.stringify(scoreCoin));
+      localStorage.setItem('scoreCoin', JSON.stringify(scoreCoin));
+    }
+
+
+
+  </script>
+</body>
+</html>

@@ -1,3 +1,5 @@
+// Basic Coin Flip: Binary system
+
 let coin = Math.floor(Math.random()*2);
 let guess = prompt('Take your guess:')
 console.log(coin);
@@ -9,9 +11,3 @@ if (guess === coin) {
 } else {
     console.log('You failed your guess...');
 }
-
-
-// Basic version:
-
-// let coin = Math.floor(Math.random()*2);
-// coin === 0 ? console.log('You got heads!') : console.log('You got tails.');

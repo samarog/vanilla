@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin Flipper v1</title>
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Convergence&display=swap');
+
+    :root {
+      font-family: 'Convergence', sans-serif
+    }
+
+    body {
+      background: linear-gradient(135deg, #fdf6e3, #f8e1d4);
+      font-size: 1rem;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    h2.header {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #5a4a42;
+      text-shadow: 1px 1px 0 #fff;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #fff8dc, #ffe4b5);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      animation: popIn 0.6s ease;
+    }
+
+    .btn {
+      background: linear-gradient(180deg, #fff8dc, #deb887);
+      border: none;
+      border-radius: 12px;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+       color: #4b3621;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-family: 'Convergence', sans-serif
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    .reset-btn {
+      margin-top: 20px;
+      background: linear-gradient(180deg, #a0453b, #fa8072);
+      color: #fff;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .reset-btn:hover {
+      background: linear-gradient(180deg, #4b100a, #f25a4d);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  </style>
+</head>
+<body>
+  <h2 class="header">Coin Flipper</h2>
+  <div class="container">
+    <button class="btn" title="Choose heads by clicking here" onclick="playGame(heads)">Heads</button>
+    <button class="btn" title="Choose tails by clicking here" onclick="playGame(tails)">Tails</button>
+  </div>
+  <button class="btn reset-btn" onclick="
+    localStorage.removeItem('scoreCoin');
+    scoreCoin.wins = 0;
+    scoreCoin.losses = 0;
+    alert('Score reset successfully!');
+  ">
+    Reset Score
+  </button>
+
+  <script>
+
+    // Counter
+
+    let scoreCoin = JSON.parse(localStorage.getItem('scoreCoin')) || { wins: 0, losses: 0 };
+    let heads = 0
+    let tails = 1;
+
+    // Game Engine
+
+    function playGame(choice) {
+      let cpuToss = Math.floor(Math.random() * 2);
+      cpuToss === 0 ? console.log('Coin landed with a face on the upside...') : console.log('Coin landed with a tail on the upside...');
+      choice === cpuToss ? alert('You win!') : alert('You lost.');
+      choice === cpuToss ? scoreCoin.wins++ : scoreCoin.losses++;
+      localStorage.setItem('scoreCoin', JSON.stringify(scoreCoin));
+      alert(`Your current score:\nWins: ${scoreCoin.wins}\nLosses: ${scoreCoin.losses}`);
+    }
+  </script>
+</body>
+</html>
