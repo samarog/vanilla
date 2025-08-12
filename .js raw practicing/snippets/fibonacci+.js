@@ -1,20 +1,20 @@
-let fibonacci = [0, 1]
-let x = fibonacci[fibonacci.length-1] + fibonacci[fibonacci.length-2]
+function fibonacciGenerator(n) {
+  let output = []
 
-console.log(fibonacci);
-console.log(x);
+  
+  
+  if (n === 0) {
+      output = []
+  } else if (n === 1) {
+      output = [0]
+  } else if (n === 2) {
+      output = [0, 1]
+  } else {
+      output = [0, 1]
+      for (let i = 2; i < n; i++) {
+          output.push(output[output.length-1] + output[output.length-2]);
+      }
+  }
 
-function fiboGen(n) {
-
-for (let i = 1; i <= n; i++) {
- fibonacci.push(x);
- console.log(fibonacci);
-
- x = fibonacci[fibonacci.length-1] + fibonacci[fibonacci.length-2];
-console.log(x);
- 
+  return output
 }
-
-return fibonacci
-}
-
