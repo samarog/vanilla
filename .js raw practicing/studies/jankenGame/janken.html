@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janken v0.1</title>
+</head>
+<body>
+
+  <h1>Janken Game</h1>
+
+  <button onclick="
+  const cpuMove = Math.ceil(Math.random()*3);
+  let cpuMoveVsRock = '';
+
+  if (cpuMove === rock) {
+    cpuMoveVsRock = `rock`;
+    result = `It's a tie.`;
+  } else if (cpuMove === paper) {
+    cpuMoveVsRock = `paper`;
+    result = 'You lose.';
+  } else if (cpuMove === scissors) {
+    cpuMoveVsRock = `scissors`;
+    result = 'You win.'
+  }
+
+  console.log(cpuMoveVsRock);
+  alert(`You picked rock. CPU chose ${cpuMoveVsRock}. ${result}`);
+
+  ">Rock</button>
+  
+  <button onclick="
+  cpuMove = Math.ceil(Math.random()*3);
+  let cpuMoveVsPaper = '';
+  let result = '';
+  
+
+  if (cpuMove === rock) {
+    cpuMoveVsPaper = `rock`;
+    result = 'You win.'
+  } else if (cpuMove === paper) {
+    cpuMoveVsPaper = `paper`;
+    result = `It's a tie.`;
+  } else if (cpuMove === scissors) {
+    cpuMoveVsPaper = `scissors`;
+    result = 'You lose.';
+  }
+
+  console.log(cpuMoveVsPaper);
+
+  alert(`You picked paper. CPU chose ${cpuMoveVsPaper}. ${result}`);
+
+  ">Paper</button>
+  
+  <button onclick="
+  cpuMove = Math.ceil(Math.random()*3);
+  let cpuMoveVsScissors = '';
+
+  if (cpuMove === rock) {
+    cpuMoveVsScissors = `rock`;
+    result = 'You lose.';
+  } else if (cpuMove === paper) {
+    cpuMoveVsScissors = `paper`;
+    result = 'You win.'
+  } else if (cpuMove === scissors) {
+    cpuMoveVsScissors = `scissors`;
+    result = `It's a tie.`;
+  }
+
+  console.log(cpuMoveVsScissors);
+
+  alert(`You picked scissors. CPU chose ${cpuMoveVsScissors}. ${result}`);
+  ">Scissors</button>
+
+  <script>
+    
+ const rock = 1;
+ const paper = 2;
+ const scissors = 3;
+
+  </script>
+</body>
+</html>
