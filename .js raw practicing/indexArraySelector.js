@@ -11,6 +11,6 @@ const fruits = [];
 fruits.push("banana", "mango", "kiwi");
 //             i0        i1      i2
 console.log(fruits);
-console.log(fruits.lenght);
+console.log(fruits.length);
 
 // Expected outcome: 3 --> Porque há três elementos, mas os index vão de 0 a 2.

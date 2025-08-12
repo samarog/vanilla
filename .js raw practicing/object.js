@@ -1,7 +1,7 @@
 // const product = {
-//   name: 'socks', // !!!!!!! aqui é mesmo vírgula
+//   name: 'socks',
 //   price: 1090, <--- isto é uma property do objeto
-//   brand: 'megga'
+//   brand: 'nike'
 //   function myFunc() {   <------- method
 //      console.log('cenas');
 // }
