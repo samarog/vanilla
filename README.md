@@ -1,6 +1,6 @@
 # Vanilla Basics
 
-A sandbox for practicing the fundamentals of **JavaScript** and **SQL**.
+A sandbox for exploring and practicing the fundamentals of **JavaScript** and **SQL**.
 
 ## Contents
 
