@@ -5,7 +5,7 @@
 -- create a customers table
 CREATE TABLE customers (
   id INT NOT NULL,
-  first_name CHAR(50) NOT NULL, -- VARCHAR is efficient in terms of storage but CHAR is faster and predictable
+  first_name CHAR(50) NOT NULL, -- VARCHAR is more efficient in terms of storage and flexibility but CHAR is faster and predictable
   last_name CHAR(50) NOT NULL,
   address CHAR(50),
   PRIMARY KEY (id)
@@ -114,3 +114,4 @@ INNER JOIN products ON product_id = products.id;
 -- https://www.w3schools.com/sql/sql_join_inner.asp TO BETTER UNDERSTAND LOGIC
 
 -- logic.png TO QUICK REVIEW
+
