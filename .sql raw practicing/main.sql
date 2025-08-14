@@ -133,6 +133,7 @@ SELECT orders.order_number, products.name, products.price, products.stock
 FROM orders
 INNER JOIN products ON product_id = products.id;
 
--- LAST NOTES:
+-- NOTES:
 -- https://www.w3schools.com/sql/sql_join_inner.asp TO BETTER UNDERSTAND LOGIC
--- logic.png TO QUICK REVIEW
+-- inner-joins.png FOR QUICK REVIEW
+
