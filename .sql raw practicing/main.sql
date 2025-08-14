@@ -29,6 +29,13 @@ CREATE TABLE products (
     PRIMARY KEY (id)
 );
 
+--create a sanitized table NOT NULL + UNIQUE
+
+CREATE TABLE visited_countries (
+id SERIAL PRIMARY KEY,
+country_code CHAR(2) NOT NULL UNIQUE -- sanitizers
+)
+
 --insert a product into products table
 INSERT INTO products
 VALUES (1, 'Caneta', 1.20);
@@ -44,6 +51,25 @@ VALUES (2, 'Papel');
 --select a product with id = 2
 SELECT * FROM products
 WHERE id = 2;
+
+--select a country that produces > 20 of wheat
+SELECT country FROM food
+WHERE wheat_production > 20
+
+--select all the countries that start with the letter U
+
+SELECT country FROM food
+WHERE country LIKE 'U' || '%'
+
+-- || in SQL means 'concatenate', not OR
+
+--select all the countries that end with the letters 'ia' like Austria or Ethiopia
+
+SELECT country FROM food
+WHERE country LIKE '%' || 'ia' 
+-- or
+SELECT country FROM food
+WHERE country LIKE '%ia' 
 
 -- UPDATE
 
@@ -71,9 +97,6 @@ SELECT * FROM products;
 UPDATE products
 SET stock = 12
 WHERE id = 2;
-
---select all records from products table
-SELECT * FROM products;
 
 -- DELETE
 
@@ -112,6 +135,4 @@ INNER JOIN products ON product_id = products.id;
 
 -- LAST NOTES:
 -- https://www.w3schools.com/sql/sql_join_inner.asp TO BETTER UNDERSTAND LOGIC
-
 -- logic.png TO QUICK REVIEW
-
